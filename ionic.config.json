@@ -1,0 +1,7 @@
+{
+  "name": "wimikaIonic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
