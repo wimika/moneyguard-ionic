@@ -1,0 +1,7 @@
+{
+  "name": "guard",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
