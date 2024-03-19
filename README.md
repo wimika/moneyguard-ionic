@@ -1,7 +1,7 @@
 1. Install the Cordova plugin "com.wimika.ionic.moneyguard":
 
     ```bash
-    cordova plugin add com.wimika.ionic.moneyguard
+    cordova plugin add moneyguard-ionic@0.0.1
     ```
 
 2. Declare the Cordova plugin in your Angular component:
@@ -20,9 +20,18 @@
 
 4. Register your app:
 
-    ```typescript
-    // Replace 'partnerBankId' and 'sessionToken' with your actual values
-    wimika.registerGuard('partnerBankId', 'sessionToken');
-    ```
+```typescript
+// Replace 'partnerBankId' and 'sessionToken' with your actual values
+Moneyguard.registerGuard(
+   partnerBankId,
+   sessionToken,
+   (session: any) => {
+       console.log('Session Object:', session);
+   },
+   (error: any) => {
+       console.error('Error initializing MoneyGuard:', error);
+   }
+);
+```
 
 Make sure to replace placeholders like 'partnerBankId' and 'sessionToken' with your actual values in the last step.
