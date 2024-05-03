@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { HashAlgorithm } from 'Moneyguard/www/MoneyGuardTypes/HashAlgorithm';
 import { CredentialScanResult } from 'Moneyguard/www/MoneyGuardTypes/CredentialScanResult';
 import { DebitTransactionCheckResult } from 'Moneyguard/www/MoneyGuardTypes/DebitTransactionCheckResult';
@@ -7,6 +8,8 @@ import { SpecificRisk } from 'Moneyguard/www/MoneyGuardTypes/SpecificRisk';
 import { RiskResult } from 'Moneyguard/www/MoneyGuardTypes/RiskResult';
 
 // Declare cordova to avoid type errors
+=======
+>>>>>>> a33be8feb0e1099d1b5733b7aee06303efb974d8
 declare var cordova: any;
 
 @Component({
@@ -15,6 +18,7 @@ declare var cordova: any;
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+<<<<<<< HEAD
   constructor() { }
 
 
@@ -33,6 +37,15 @@ export class HomePage {
     registerGuard(
       partnerBankId,
       sessionToken,
+=======
+  constructor() {}
+
+  checkPlugin() {
+    const wimika = cordova.plugins.Moneyguard;
+    console.log(wimika);
+    wimika.echo(
+      'testing',
+>>>>>>> a33be8feb0e1099d1b5733b7aee06303efb974d8
       (result: any) => {
         console.log(result);
       },
@@ -40,6 +53,7 @@ export class HomePage {
         console.log(error);
       }
     );
+<<<<<<< HEAD
 
 
   }
@@ -106,4 +120,7 @@ export class HomePage {
     );
   }
 
+=======
+  }
+>>>>>>> a33be8feb0e1099d1b5733b7aee06303efb974d8
 }
