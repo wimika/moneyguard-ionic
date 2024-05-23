@@ -73,11 +73,9 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
-      "com.wimika.ionic.moneyguard": {},
-      "cordova-plugin-enable-cleartext-traffic": {}
+      "cordova-plugin-enable-cleartext-traffic": {},
+      "moneyguard-ionic": {}
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   }
 }

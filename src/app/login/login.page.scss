@@ -1,0 +1,12 @@
+/* Assuming your component is named 'LoginPage' */
+.login-page {
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Optional: Set a maximum width if needed */
+      max-width: 400px; /* Adjust as desired */
+    }
+  }
+  
