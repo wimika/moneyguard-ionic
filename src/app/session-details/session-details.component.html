@@ -1,0 +1,42 @@
+<ion-content>
+
+<ion-card *ngIf="sessionData">
+  <ion-card-header>
+    <ion-card-title>Session Information</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label>Expires In:</ion-label>
+      <ion-text>{{ sessionData.expiresIn }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Partner Bank:</ion-label>
+      <ion-text>{{ sessionData.partnerBank }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Service URL:</ion-label>
+      <ion-text>{{ sessionData.serviceUrl }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Token:</ion-label>
+      <ion-text>{{ sessionData.token }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Email:</ion-label>
+      <ion-text>{{ sessionData.userDetails.email }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>First Name:</ion-label>
+      <ion-text>{{ sessionData.userDetails.firstName }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Last Name:</ion-label>
+      <ion-text>{{ sessionData.userDetails.lastName }}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>User ID:</ion-label>
+      <ion-text>{{ sessionData.userDetails.id }}</ion-text>
+    </ion-item>
+  </ion-card-content>
+</ion-card>
+</ion-content>
