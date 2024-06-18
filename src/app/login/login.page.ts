@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { AuthenticationService } from '../services/authentication.service';
+import { Router }
 
+  from '@angular/router';
 // Declare cordova to avoid type errors
 declare var cordova: any;
 
@@ -15,7 +18,12 @@ export class LoginPage implements OnInit {
   public password: string;
   public message: string;
   public isToastOpen = false;
-  constructor(private toastController: ToastController) {
+
+  constructor(
+    private toastController: ToastController,
+    private authService: AuthenticationService,
+    private router: Router
+  ) {
     this.username = '';
     this.password = '';
     this.message = '';
@@ -38,7 +46,8 @@ export class LoginPage implements OnInit {
       this.username,
       this.password,
       (result: any) => {
-        console.log(result);
+        this.authService.setUser(result);
+        this.router.navigate(['/home']);
       },
       (error: any) => {
         console.log(error);
