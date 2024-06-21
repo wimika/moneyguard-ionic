@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AuthenticationService } from '../services/authentication.service';
-import { Router } from '@angular/router';
+
+
 
 // Declare cordova to avoid type errors
 declare var cordova: any;
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-credential',
+  templateUrl: './credential.page.html',
+  styleUrls: ['./credential.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class CredentialPage implements OnInit {
 
   public username: string;
   public password: string;
@@ -23,8 +25,8 @@ export class LoginPage implements OnInit {
     private authService: AuthenticationService,
     private router: Router
   ) {
-    this.username = 'poc-wema@wimika.ng';
-    this.password = 'anything';
+    this.username = '';
+    this.password = '';
     this.message = '';
   }
 
@@ -32,7 +34,7 @@ export class LoginPage implements OnInit {
   }
 
   async signIn() {
-    const { getSession } = cordova.plugins.Moneyguard;
+    const { checkCredential } = cordova.plugins.Moneyguard;
 
     if (this.username === '' || this.password === '') {
       this.message = 'Please enter your username and password';
@@ -41,12 +43,12 @@ export class LoginPage implements OnInit {
       return;
     }
     console.log(this.username, this.password);
-    getSession(
+    checkCredential(
       this.username,
       this.password,
-      (result: any) => {
-        this.authService.setUser(result);
-        this.router.navigate(['/home']);
+      async (result: any) => {
+        this.message = result;
+        await this.presentToast();
       },
       (error: any) => {
         console.log(error);
@@ -60,6 +62,10 @@ export class LoginPage implements OnInit {
       duration: 5000
     });
     await toast.present();
+  }
+
+  goBack() {
+    this.router.navigate(['/home']);
   }
 
 }

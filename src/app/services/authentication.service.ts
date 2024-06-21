@@ -1,28 +1,42 @@
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  private user: any = null;
+  private readonly USER_KEY = 'authenticatedUser';
+  private _storage: Storage | null = null;
 
+  constructor(private storage: Storage) {
+    this.init();
+  }
 
-  constructor() { }
+  async init() {
+    // If using, define drivers here: await this.storage.defineDriver(MyCustomDriver)
+    const storage = await this.storage.create();
+    this._storage = storage;
+  }
 
   async isAuthenticated(): Promise<boolean> {
-    return !!this.user; 
+    const user = await this.getUserFromStorage();
+    return !!user;
   }
 
-  setUser(user: any): void {
-    this.user = user;
+  async setUser(user: any): Promise<void> {
+    await this._storage?.set(this.USER_KEY, user);
   }
 
-  getUser(): any {
-    return this.user;
+  async getUser(): Promise<any> {
+    return await this.getUserFromStorage();
   }
 
-  clearUser(): void {
-    this.user = null;
+  async clearUser(): Promise<void> {
+    await this._storage?.remove(this.USER_KEY);
+  }
+
+  private async getUserFromStorage(): Promise<any> {
+    return await this._storage?.get(this.USER_KEY);
   }
 }

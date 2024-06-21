@@ -16,7 +16,15 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },  {
+    path: 'credential',
+    loadChildren: () => import('./credential/credential.module').then( m => m.CredentialPageModule)
   },
+  {
+    path: 'debit',
+    loadChildren: () => import('./debit/debit.module').then( m => m.DebitPageModule)
+  },
+
 ];
 
 @NgModule({

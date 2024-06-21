@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { SessionDetailsComponent } from '../session-details/session-details.component';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 declare var cordova: any;
 
 @Component({
@@ -15,7 +15,8 @@ export class HomePage implements OnInit{
 
   constructor( 
     private authService: AuthenticationService,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private navCtrl: NavController
   ) {}
 
 
@@ -31,6 +32,15 @@ export class HomePage implements OnInit{
 
   checkPlugin() {
     const wimika = cordova.plugins.Moneyguard;
+  }
+
+  
+  moveCredential(){
+    this.navCtrl.navigateRoot('/credential');
+  }
+
+  moveDebit(){
+    this.navCtrl.navigateRoot('/debit');
   }
 
   async presentSessionDetailsModal() {

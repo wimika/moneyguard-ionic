@@ -1,0 +1,42 @@
+<ion-content [fullscreen]="true">
+ 
+
+  <div id="container">
+    <div class="form-container">
+      <ion-item lines="none" class="inpFrm">
+        <ion-label position="stacked">Source Acount Number</ion-label>
+        <ion-input type="text" [(ngModel)]="sourceAccountNumber"></ion-input>
+      </ion-item>
+  
+      <ion-item lines="none" class="inpFrm">
+        <ion-label position="stacked">Destination Bank</ion-label>
+        <ion-input type="text" [(ngModel)]="destinationBank"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="inpFrm">
+        <ion-label position="stacked">Destination Account Number</ion-label>
+        <ion-input type="text" [(ngModel)]="destinationAccountNumber"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="inpFrm">
+        <ion-label position="stacked">Amount</ion-label>
+        <ion-input type="number" [(ngModel)]="amount"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="inpFrm">
+        <ion-label position="stacked">Memo</ion-label>
+        <ion-input type="text" [(ngModel)]="memo"></ion-input>
+      </ion-item>
+  
+      <ion-row class="ion-justify-content-center ion-margin-top">
+        <ion-col size="12" size-md="8" size-lg="6">
+          <ion-button expand="full" (click)="signIn()">CHECK DEBIT</ion-button>
+        </ion-col>
+        <ion-col size="12" size-md="8" size-lg="6">
+          <ion-button expand="full" (click)="goBack()">GO BACK</ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+   
+  </div>
+</ion-content>
