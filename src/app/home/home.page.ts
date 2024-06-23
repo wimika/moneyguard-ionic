@@ -43,6 +43,10 @@ export class HomePage implements OnInit{
     this.navCtrl.navigateRoot('/debit');
   }
 
+  moveTyping(){
+    this.navCtrl.navigateRoot('/typing');
+  }
+
   async presentSessionDetailsModal() {
     const modal = await this.modalController.create({
       component: SessionDetailsComponent,

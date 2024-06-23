@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'debit',
     loadChildren: () => import('./debit/debit.module').then( m => m.DebitPageModule)
   },
+  {
+    path: 'typing',
+    loadChildren: () => import('./typing/typing.module').then( m => m.TypingPageModule)
+  },
 
 ];
 

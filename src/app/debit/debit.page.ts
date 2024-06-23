@@ -53,7 +53,8 @@ export class DebitPage implements OnInit {
     checkDebitTransaction(
       reqPayoad,
       async (result: any) => {
-        console.log(result);
+        this.message = result;
+        await this.presentToast();
       },
       (error: any) => {
         console.log(error);
