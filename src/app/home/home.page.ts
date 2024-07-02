@@ -39,6 +39,10 @@ export class HomePage implements OnInit{
     this.navCtrl.navigateRoot('/credential');
   }
 
+  checkRisk(){
+    
+  }
+
   moveDebit(){
     this.navCtrl.navigateRoot('/debit');
   }
